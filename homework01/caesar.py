@@ -13,12 +13,12 @@ def encrypt_caesar(plaintext: str) -> str:
 
 plaintext = input("введите текст для зашифровки: ")
 for c in plaintext:
-if ord('a') <= ord(c) <= ord('w') or ord('A') <= ord(c) <= ord('W'):
-ciphhertext = chr(ord(c) + 3)
-print(ciphhertext, end='')
-if ord('x') <= ord(c) <= ord('z') or ord('X') <= ord(c) <= ord('Z'):
-ciphertext = chr(ord(c) + 3 - 26)
-print(ciphertext, end='')
+    if ord('a') <= ord(c) <= ord('w') or ord('A') <= ord(c) <= ord('W'):
+        ciphhertext = chr(ord(c) + 3)
+        print(ciphhertext, end='')
+    if ord('x') <= ord(c) <= ord('z') or ord('X') <= ord(c) <= ord('Z'):
+        ciphertext = chr(ord(c) + 3 - 26)
+        print(ciphertext, end='')
 
 
 
@@ -37,9 +37,9 @@ def decrypt_caesar(ciphertext: str) -> str:
 
 ciphhertext = input('\n' 'введите текст для расшифровки: ')
 for c in ciphhertext:
-if ord('d') <= ord(c) <= ord('z') or ord('D') <= ord(c) <= ord('Z') :
-plaintext = chr(ord(c) - 3)
-print(plaintext, end='')
-if ord('a') <= ord(c) <= ord('c') or ord('A') <= ord(c) <= ord('C'):
-plaintext = chr(ord(c) - 3 + 26)
-print(plaintext, end='')
+    if ord('d') <= ord(c) <= ord('z') or ord('D') <= ord(c) <= ord('Z') :
+        plaintext = chr(ord(c) - 3)
+        print(plaintext, end='')
+    if ord('a') <= ord(c) <= ord('c') or ord('A') <= ord(c) <= ord('C'):
+        plaintext = chr(ord(c) - 3 + 26)
+        print(plaintext, end='')
