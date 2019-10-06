@@ -52,7 +52,7 @@ def generate_keypair(p, q):
         phi = int(input('Введите переменную phi: '))
 
     if e >= phi:
-        print('Первое введенное число должно быть меньше значение переменной phi:')
+        print('Введенное число должно быть меньше значение phi:')
     if e < phi:
         e = e % phi
         for x in range(1, phi):
