@@ -42,11 +42,11 @@ def gcd(a, b):
             print(b)
 
 
-def generate_keypair(p, q):
+def multiplicative_inverse(e: int, phi: int) -> int:
     if not (is_prime(p) and is_prime(q)):
-        raise ValueError('Both numbers must be prime.')
+        print('Both numbers must be prime.')
     elif p == q:
-        raise ValueError('p and q cannot be equal')
+        print('p and q cannot be equal')
     else:
         e = int(input('Введите число: '))
         phi = int(input('Введите переменную phi: '))
