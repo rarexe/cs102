@@ -8,14 +8,15 @@ def is_prime(n):
     >>> is_prime(8)
     False
    """
-    if n == 2:
+    if n % 2 == 0:
         return True
-    for i in range(2, n):
-        if  % i == 0:
+    d == 3
+    while d*d <= n and n != 0:
+        d += 2
+        if d*d > n
+            return True
+        else:
             return False
-    else:
-        return True
-    pass
 
 
 def gcd(a, b):
@@ -35,7 +36,6 @@ def gcd(a, b):
             return a
         else:
             return b
-     pass
 
 
 def multiplicative_inverse(e: int, phi: int) -> int:
@@ -51,7 +51,6 @@ def multiplicative_inverse(e: int, phi: int) -> int:
         for x in range(1, phi):
             if (e * x) % phi == 1:
                 return x
-    pass
 
 def generate_keypair(p, q):
     if not (is_prime(p) and is_prime(q)):
