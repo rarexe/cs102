@@ -8,15 +8,13 @@ def is_prime(n):
     >>> is_prime(8)
     False
    """
-
-    p = int(input('Введите число: '))
-    if p == 2:
-        print('True')
-    for i in range(2, p):
-        if p % i == 0:
-            print('False')
+    if n == 2:
+        return True
+    for i in range(2, n):
+        if  % i == 0:
+            return False
     else:
-        print('True')
+        return True
 
 
 def gcd(a, b):
@@ -27,37 +25,30 @@ def gcd(a, b):
     >>> gcd(3, 7)
     1
     """
-
-
-    a = int(input('Введите первое число: '))
-    b = int(input('Введите второе число:'))
     while a != 0 and b != 0:
         if a > b:
             a = a % b
         else:
             b = b % a
         if a != 0:
-            print(a)
+            return a
         else:
-            print(b)
+            return b
 
 
 def multiplicative_inverse(e: int, phi: int) -> int:
     if not (is_prime(p) and is_prime(q)):
-        print('Both numbers must be prime.')
+        raise ValueError('Both numbers must be prime.')
     elif p == q:
-        print('p and q cannot be equal')
+        raise ValueError('p and q cannot be equal')
     else:
-        e = int(input('Введите число: '))
-        phi = int(input('Введите переменную phi: '))
-
-    if e >= phi:
-        print('Введенное число должно быть меньше значение phi:')
+        if e >= phi:
+        raise ValueError('Введенное число должно быть меньше значение phi')
     if e < phi:
         e = e % phi
         for x in range(1, phi):
             if (e * x) % phi == 1:
-                print(x)
+                return x
 
 
 def generate_keypair(p, q):
