@@ -13,10 +13,10 @@ def is_prime(n):
     d == 3
     while d*d <= n and n != 0:
         d += 2
-        if d*d > n
-            return True
-        else:
-            return False
+    if d*d > n
+        return True
+    else:
+        return False
 
 
 def gcd(a, b):
