@@ -39,7 +39,6 @@ class Console(UI):
             self.draw_borders(screen)
             self.draw_grid(screen)
             screen.refresh()
-            time.sleep(sleep_time)
             self.life.step()
         
         curses.endwin()
