@@ -118,7 +118,7 @@ class GameOfLife:
         out : Cells
             Список соседних клеток.
         """
-        Cells = []
+        neighbours = []
         x, y = cell
         for row in range(x - 1, x + 2):
             for col in range(y - 1, y + 2):
@@ -128,8 +128,8 @@ class GameOfLife:
                     continue
                 if row == x and col == y:
                     continue
-                Cells.append(self.array[row][col])
-        return Cells
+                neighbours.append(self.array[row][col])
+        return neighbours
 
     def get_next_generation(self) -> Grid:
         """
