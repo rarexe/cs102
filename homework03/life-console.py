@@ -31,16 +31,16 @@ class Console(UI):
 
     def run(self) -> None:
         screen = curses.initscr()
-        self.draw_borders(screen)
-        curses.curs_set(0)
-        screen.keypad(True)
-
-        self.life.create_grid(True)
-        running = True
-        while running and self.life.is_changing and \
-                not self.life.is_max_generations_exceed:
-            self.life.step()
+        # PUT YOUR CODE HERE
+        curses.noecho()
+        sleep_time = 0.3
+        while self.life.is_changing and not self.life.is_max_generations_exceed:
+            screen.clear()
+            self.draw_borders(screen)
             self.draw_grid(screen)
             screen.refresh()
+            time.sleep(sleep_time)
+            self.life.step()
+        
         curses.endwin()
 
