@@ -30,7 +30,7 @@ class GameOfLife:
         for i in range(self.rows):
             grid = []
             for j in range(self.cols):
-                if randomize == True:
+                if randomize:
                     grid.append(random.randint(0, 1))
                 else:
                     grid.append(0)
