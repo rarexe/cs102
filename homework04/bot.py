@@ -25,7 +25,7 @@ def get_page(group, week=''):
 
 
 def parse_schedule_for_a_monday(web_page: list, day: str):
-    soup = BeautifulSoup(web_page, "html.parser")
+    soup = BeautifulSoup(web_page, "html5lib")
     day_num = str(day_list.index(day) + 1) + 'day'
 
     # Получаем таблицу с расписанием на понедельник
