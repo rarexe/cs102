@@ -60,7 +60,7 @@ def get_shedule(message):
         schedule = parse_schedule_for_a_monday(web_page, day[1:])
         resp = ''
         if schedule is None:
-            resp += 'Занятий нет'
+            resp += 'В этот день занятий нет!'
         else:
             for time, location, lession in zip(times_lst, locations_lst, lessons_lst):
                 resp += '<b>{}</b>, {}, {}\n'.format(time, location, lession)
@@ -83,7 +83,7 @@ def get_tommorow(message):
     web_page = get_page(group, week)
     schedule = parse_schedule_for_a_monday(web_page, day_list[today])
     if schedule is None:
-        resp = 'Занятий нет'
+        resp = 'В этот день занятий нет!'
         bot.send_message(message.chat.id, resp, parse_mode='HTML')
     else:
         times_lst, locations_lst, lessons_lst = schedule
@@ -103,7 +103,7 @@ def get_all_schedule(message):
             schedule = parse_schedule_for_a_monday(web_page, day_list[day])
             resp = '\n' + '\n' + "<b>{}:</b>".format(day_rus[day]) + '\n' + '\n'
             if schedule is None:
-                resp += 'Занятий нет'
+                resp += 'В этот день нет занятий'
             else:
                 times_lst, locations_lst, lessons_lst = schedule
                 for time, location, lession in zip(times_lst, locations_lst, lessons_lst):
@@ -134,40 +134,45 @@ def get_near_lesson(message):
             web_page = get_page(group, week)
             next_schedule = parse_schedule_for_a_monday(web_page, day_list[today])
             if next_schedule is not None:
-                times_lst, locations_lst, lessons_lst = parse_schedule_for_a_monday(web_page, day_list[today])
+                times_lst, locations_lst, lessons_lst = next_schedule
                 for time, location, lesson in zip(times_lst, locations_lst, lessons_lst):
-                    resp += '<b>{}\n{}</b> {} {}\n'.format(day_rus[today], time, location,  lesson)
+                    resp += '<b>{}\n{}</b> {} {}\n'.format(day_rus[today], time, location, lesson)
                 a = 1
     else:
+        times_lst, locations_lst, lessons_lst = schedule
         cur_hour = int(datetime.datetime.today().strftime('%H'))
         cur_minute = int(datetime.datetime.today().strftime('%M'))
-        times_lst, locations_lst, lessons_lst = schedule
         for time, location, lesson in zip(times_lst, locations_lst, lessons_lst):
             hour_begin = int(time[0:2])
             minute_begin = int(time[3:5])
             if cur_hour == hour_begin:
-                if minute_begin > cur_minute:
-                    resp += '<b>{}\n{}</b> {} {}\n'.format(day_rus[today], time, location,  lesson)
+                if minute_begin >= cur_minute:
+                    resp += '\n' + '\n' + "<b>{}:</b>".format(day_rus[today]) + '\n' + '\n'
+                    resp += '<b>{}</b>, {},  {}\n'.format(time, location, lesson)
+                    break
             elif cur_hour < hour_begin:
-                resp += '<b>{}\n{}</b> {} {}\n'.format(day_rus[today], time, location,  lesson)
-            else:
-                b = 0
-                while b == 0:
-                    if today == 5:
-                        today = 0
-                        week += 1
-                    elif today == 6:
-                        today = 0
-                        week += 1
-                    else:
-                        today += 1
-                    web_page = get_page(group, week)
-                    next_schedule = parse_schedule_for_a_monday(web_page, day_list[today])
-                    if next_schedule is not None:
-                        times_lst, locations_lst, lessons_lst = next_schedule
-                        for time, location, lesson in zip(times_lst, locations_lst, lessons_lst):
-                            resp += '<b>{}\n{}</b>, {}, {}\n'.format(day_rus[today], time, location,  lesson)
-                        b = 1
+                resp += '\n' + '\n' + "<b>{}:</b>".format(day_rus[today]) + '\n' + '\n'
+                resp += '<b>{}</b>, {},  {}\n'.format(time, location, lesson)
+                break
+
+        if resp == '' :
+            b = 0
+            while b == 0:
+                if today == 5:
+                    today = 0
+                    week += 1
+                elif today == 6:
+                    today = 0
+                    week += 1
+                else:
+                    today += 1
+                web_page = get_page(group, week)
+                next_schedule = parse_schedule_for_a_monday(web_page, day_list[today])
+                if next_schedule is not None:
+                    times_lst, locations_lst, lessons_lst = next_schedule
+                    for time, location, lesson in zip(times_lst, locations_lst, lessons_lst):
+                        resp += '<b>{}\n{}</b>, {}, {}\n'.format(day_rus[today], time, location, lesson)
+                    b = 1
     bot.send_message(message.chat.id, resp, parse_mode='HTML')
 
 
