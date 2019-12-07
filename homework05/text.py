@@ -63,13 +63,13 @@ def get_wall(
             "v": v
         }
     )
-    walls = []
-    for i in range(count):
+    posts = []
+    for i in range(10):
         try:
-            walls.append(response.json()['response']['items'][i]['text'])
+            posts.append(response.json()['response']['items'][i]['text'])
         except:
             break
-    return walls
+    return posts
 
 
 def emoji_free_text(text):
@@ -109,22 +109,18 @@ def updated_text(text):
     print([morph.parse(n)[0].normal_form for n in new_text.split()])
 
 
-wall = []
+post = []
 for i in range(2):
-	for group in ['itmoru','sportsru']:
-		wall.extend(get_wall(domain=group, count=100, offset=100*i))
-wall = ' '.join(wall)
-wall = updated_text(wall)
-dictionary = Dictionary(wall)
+	for group in ['itmoru','itcookies']:
+		wall.extend(get_wall(domain=group, count=10, offset=100*i))
+post = ' '.join(post)
+post = updated_text(post)
+dictionary = Dictionary(post)
 new_text = []
-for i in range(len(wall)):
-    new_text.extend(wall[i])
+for i in range(len(post)):
+    new_text.extend(post[i])
 corpus = [dictionary.doc2bow(new_text)]
-lda= gensim.models.ldamodel.LdaModel(corpus=corpus,
-                                                id2word=dictionary,
-                                                num_topics=10,
-                                                alpha='auto',
-                                                per_word_topics=False)
+lda= gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary,num_topics=10,alpha='auto', per_word_topics=False)                                                                                                                                            
 vis = pyLDAvis.gensim.prepare(lda_model, corpus, dictionary)
 pyLDAvis.save_html(vis, 'LDA.html')
 pyLDAvis.show(data = vis, open_browser = True)
