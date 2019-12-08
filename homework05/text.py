@@ -64,13 +64,13 @@ def get_wall(
             "v": v
         }
     )
-    walls = []
+    posts = []
     for i in range(count):
         try:
-            walls.append(response.json()['response']['items'][i]['text'])
+            posts.append(response.json()['response']['items'][i]['text'])
         except:
             break
-    return walls
+    return posts
 
 
 def emoji_free_text(text):
@@ -109,16 +109,16 @@ def updated_text(text):
     new_text = no_stopwords(new_text)
     new_text = ' '.join(new_text)
     return([morph.parse(n)[0].normal_form for n in new_text.split()])
-wall = []
+post = []
 for i in range(1):
 	for group in ['animalplanetrussia']:
-		wall.extend(get_wall(domain=group, count=100, offset=100))
-wall = ' '.join(wall)
-wall = updated_text(wall)
-print(wall)
-new_wall = [w.split() for w in wall]
-dictionary = gensim.corpora.Dictionary(new_wall)
-corpus = [dictionary.doc2bow(wall)]
+		post.extend(get_wall(domain=group, count=100, offset=100))
+post = ' '.join(post)
+post = updated_text(post)
+print(post)
+new_post = [w.split() for w in post]
+dictionary = gensim.corpora.Dictionary(new_post)
+corpus = [dictionary.doc2bow(post)]
 lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
                                            id2word=dictionary,
                                            num_topics=1,
@@ -141,7 +141,6 @@ cloud = WordCloud(stopwords=STOPWORDS,
                   prefer_horizontal=1.0)
 topics = lda_model.show_topics(formatted=False)
 fig, axes = plt.subplots(1,1, figsize=(10,10), sharex=True, sharey=True)
-
 topic_words = dict(topics[0][1])
 cloud.generate_from_frequencies(topic_words, max_font_size=300)
 plt.gca().imshow(cloud)
