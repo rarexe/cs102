@@ -1,7 +1,7 @@
 import psycopg2
 import csv
 
-conn = psycopg2.connect(host='localhost', port='5432', dbname='odscourse', user='postgres', password='anna2002')
+conn = psycopg2.connect(host='localhost', port='5432', dbname='odscourse', user='postgres', password='secret')
 cursor = conn.cursor()
 
 query = """
