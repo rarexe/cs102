@@ -44,9 +44,6 @@ with open('athlete_events.csv', 'r') as f:
             " city, sport, event, medal) "
             "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
             [Id] + row)
-
-        if Id < 5:
-            print('line', Id, 'inserted')
 conn.commit()
 
 cursor.execute("SELECT * FROM athlete_events LIMIT 5")
