@@ -28,15 +28,25 @@ cursor.execute(query)
 conn.commit()
 
 
-with open('homework11/athlete_events.csv', 'r') as f:
+with open('athlete_events.csv', 'r') as f:
     reader = csv.reader(f)
     # Skip the header row
     next(reader)
+
     for Id, row in enumerate(reader):
+        for i in range(len(row)):
+            if row[i] == 'NA':
+                if i in (3, 4, 5, 9):
+                    row[i] = '0'
+
         cursor.execute(
-            "INSERT INTO athlete_events VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-            [Id] + row
-        )
+            "INSERT INTO athlete_events (id, athlete_id, name, sex, age, height, weight, team, noc, games, year, season,"
+            " city, sport, event, medal) "
+            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            [Id] + row)
+
+        if Id < 5:
+            print('line', Id, 'inserted')
 conn.commit()
 
 cursor.execute("SELECT * FROM athlete_events LIMIT 5")
