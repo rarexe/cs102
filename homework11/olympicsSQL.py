@@ -8,7 +8,7 @@ def fetch_all(cursor):
     return [{colname: value for colname, value in zip(colnames, record)} for record in records]
 
 
-conn = psycopg2.connect(host='localhost', port='5432', dbname='odscourse', user='postgres', password='anna2002')
+conn = psycopg2.connect(host='localhost', port='5432', dbname='odscourse', user='postgres', password='secret')
 cursor = conn.cursor()
 
 # 1. How old were the youngest male and female participants of the 1996 Olympics? (12, 14)
