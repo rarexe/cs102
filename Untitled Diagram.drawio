@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-04T14:32:44.373Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36 OPR/75.0.3969.93 (Edition Yx 03)" etag="ssyAiOVSHEB6RaUnlg3L" version="14.5.7" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2021-04-04T14:35:59.894Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36 OPR/75.0.3969.93 (Edition Yx 03)" etag="xF6gjXHly_Tv7jVnZcpW" version="14.5.7" type="github" pages="2">
   <diagram id="7YIRpNYBxvqHMYgQ-PB9" name="Page-1">
     <mxGraphModel dx="998" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -335,6 +335,51 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="530" y="670" as="sourcePoint" />
             <mxPoint x="550" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-32" value="Состав закупки" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="790" width="99" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-33" value="" style="endArrow=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="XEa3TiJN05s5VtwA8wra-32" target="XEa3TiJN05s5VtwA8wra-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="870" as="sourcePoint" />
+            <mxPoint x="580" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-35" value="Код состава&amp;nbsp;&lt;br&gt;закупки" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="494.5" y="870" width="75.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-36" value="Срок&amp;nbsp;&lt;br&gt;годности" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="910" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-37" value="Количество&amp;nbsp;&lt;br&gt;товара" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="358" y="890" width="72" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-38" value="Стоимость за единицу" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="277.5" y="870" width="72.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-39" value="" style="endArrow=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.432;entryY=0.985;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="XEa3TiJN05s5VtwA8wra-38" target="XEa3TiJN05s5VtwA8wra-32">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="850" as="sourcePoint" />
+            <mxPoint x="580" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-40" value="" style="endArrow=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="XEa3TiJN05s5VtwA8wra-37" target="XEa3TiJN05s5VtwA8wra-32">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="850" as="sourcePoint" />
+            <mxPoint x="580" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-41" value="" style="endArrow=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="XEa3TiJN05s5VtwA8wra-36" target="XEa3TiJN05s5VtwA8wra-32">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="850" as="sourcePoint" />
+            <mxPoint x="580" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XEa3TiJN05s5VtwA8wra-42" value="" style="endArrow=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="XEa3TiJN05s5VtwA8wra-35" target="XEa3TiJN05s5VtwA8wra-32">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="850" as="sourcePoint" />
+            <mxPoint x="580" y="800" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
